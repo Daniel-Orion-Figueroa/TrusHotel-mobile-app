@@ -68,3 +68,5 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+MOBILE_APP_SPECIFICATIONS.md
+API_SPECIFICATIONS_FOR_MOBILE_APP.md
