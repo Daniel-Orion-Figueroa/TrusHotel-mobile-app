@@ -1,0 +1,106 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.title-section {
+  text-align: center;
+  margin-bottom: 48px;
+  color: white;
+
+  h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0 0 12px 0;
+  }
+
+  p {
+    font-size: 16px;
+    margin: 0;
+    opacity: 0.9;
+  }
+}
+
+.role-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 32px;
+
+  .role-card {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:active {
+      transform: translateY(-4px);
+    }
+
+    ion-card-header {
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px 16px;
+
+      ion-icon {
+        font-size: 48px;
+      }
+    }
+
+    ion-card-content {
+      text-align: center;
+      padding: 0 16px 24px;
+
+      h2 {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 16px 0 8px;
+      }
+
+      p {
+        font-size: 14px;
+        color: #666;
+        margin: 0 0 16px;
+      }
+
+      ion-button {
+        height: 44px;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.info-section {
+  text-align: center;
+  color: white;
+
+  small {
+    font-size: 12px;
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 768px) {
+  .role-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .title-section {
+    margin-bottom: 32px;
+
+    h1 {
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+}
