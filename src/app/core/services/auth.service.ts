@@ -17,7 +17,11 @@ import { tap, catchError, finalize } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { LoginDTO, JwtTokenDTO, User, AuthState } from '../models/auth.models';
 import { StorageService } from './storage.service';
+<<<<<<< HEAD
 >>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd
+=======
+>>>>>>> 481124ae13b2f8a22152d2caef26f10e9fc17528
+>>>>>>> 506e5932c7f1d087a62514d54b1ab6d0f6488a00
 
 @Injectable({
   providedIn: 'root'
@@ -264,5 +268,9 @@ export class AuthService {
     const currentState = this.authState.value;
     this.authState.next({ ...currentState, ...partial });
   }
+<<<<<<< HEAD
 >>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd
+=======
+>>>>>>> 481124ae13b2f8a22152d2caef26f10e9fc17528
+>>>>>>> 506e5932c7f1d087a62514d54b1ab6d0f6488a00
 }
