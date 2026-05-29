@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { RoomServiceService, Staying, ClientProfile } from '../../core/services/room-service.service';
+=======
+>>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd
 
 @Component({
   selector: 'app-stay-information',
   templateUrl: './stay-information.component.html',
   styleUrls: ['./stay-information.component.scss'],
+<<<<<<< HEAD
   standalone: false,
 })
 export class StayInformationComponent implements OnInit {
@@ -48,4 +52,13 @@ export class StayInformationComponent implements OnInit {
       }
     });
   }
+=======
+})
+export class StayInformationComponent  implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {}
+
+>>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd
 }

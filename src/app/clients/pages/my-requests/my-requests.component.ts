@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { RoomServiceService, Staying, ClientProfile, RoomService, RoomServiceRequest } from '../../core/services/room-service.service';
+=======
+>>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd
 
 @Component({
   selector: 'app-my-requests',
   templateUrl: './my-requests.component.html',
   styleUrls: ['./my-requests.component.scss'],
+<<<<<<< HEAD
   standalone: false,
 })
 export class MyRequestsComponent implements OnInit {
@@ -121,4 +125,13 @@ export class MyRequestsComponent implements OnInit {
       default: return status;
     }
   }
+=======
+})
+export class MyRequestsComponent  implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {}
+
+>>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd
 }

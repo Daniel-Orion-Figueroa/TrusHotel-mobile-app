@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+<<<<<<< HEAD
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
@@ -35,6 +36,15 @@ const routes: Routes = [
     ReactiveFormsModule,
     IonicModule,
     RouterModule.forChild(routes)
+=======
+
+
+
+@NgModule({
+  declarations: [],
+  imports: [
+    CommonModule
+>>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd
   ]
 })
 export class ClientsModule { }

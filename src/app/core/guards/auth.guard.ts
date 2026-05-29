@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
@@ -12,3 +13,37 @@ export const authGuard: CanActivateFn = (route, state) => {
 
   return router.createUrlTree(['/login']);
 };
+=======
+import { Injectable } from '@angular/core';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuard implements CanActivate {
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
+
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    if (this.authService.isAuthenticated()) {
+      // Check if route requires specific role
+      const requiredRole = route.data['role'];
+      if (requiredRole && !this.authService.hasRole(requiredRole)) {
+        this.router.navigate(['/unauthorized']);
+        return false;
+      }
+      return true;
+    }
+
+    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+    return false;
+  }
+}
+>>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd

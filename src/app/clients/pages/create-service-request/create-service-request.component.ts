@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import {
   RoomServiceService,
   Staying,
@@ -6,11 +7,14 @@ import {
   RoomService,
 } from '../../core/services/room-service.service';
 import { Router } from '@angular/router';
+=======
+>>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd
 
 @Component({
   selector: 'app-create-service-request',
   templateUrl: './create-service-request.component.html',
   styleUrls: ['./create-service-request.component.scss'],
+<<<<<<< HEAD
   standalone: false,
 })
 export class CreateServiceRequestComponent implements OnInit {
@@ -142,4 +146,13 @@ export class CreateServiceRequestComponent implements OnInit {
         },
       });
   }
+=======
+})
+export class CreateServiceRequestComponent  implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {}
+
+>>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd
 }
