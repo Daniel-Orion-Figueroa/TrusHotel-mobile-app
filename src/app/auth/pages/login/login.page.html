@@ -1,0 +1,105 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>TrustHotel - Iniciar Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo-container">
+      <ion-icon name="shield-checkmark" size="large" color="primary"></ion-icon>
+      <h1>TrustHotel</h1>
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login-form">
+      <!-- Email Input -->
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input
+          type="email"
+          formControlName="email"
+          placeholder="tu@email.com"
+          [disabled]="isLoading"
+        ></ion-input>
+      </ion-item>
+
+      <div
+        class="error-message"
+        *ngIf="
+          loginForm.get('email')?.invalid &&
+          loginForm.get('email')?.touched
+        "
+      >
+        <ion-text color="danger">
+          <small *ngIf="loginForm.get('email')?.errors?.['required']">
+            El email es requerido
+          </small>
+          <small *ngIf="loginForm.get('email')?.errors?.['email']">
+            Ingresa un email válido
+          </small>
+        </ion-text>
+      </div>
+
+      <!-- DNI Input -->
+      <ion-item>
+        <ion-label position="floating">DNI</ion-label>
+        <ion-input
+          type="text"
+          formControlName="dni"
+          placeholder="12345678"
+          [disabled]="isLoading"
+        ></ion-input>
+      </ion-item>
+
+      <div
+        class="error-message"
+        *ngIf="
+          loginForm.get('dni')?.invalid &&
+          loginForm.get('dni')?.touched
+        "
+      >
+        <ion-text color="danger">
+          <small *ngIf="loginForm.get('dni')?.errors?.['required']">
+            El DNI es requerido
+          </small>
+          <small *ngIf="loginForm.get('dni')?.errors?.['minlength']">
+            El DNI debe tener al menos 8 caracteres
+          </small>
+        </ion-text>
+      </div>
+
+      <!-- Error Message -->
+      <div *ngIf="error" class="alert-error">
+        <ion-alert
+          [isOpen]="!!error"
+          header="Error de Autenticación"
+          [message]="error"
+          [buttons]="['OK']"
+          (didDismiss)="error = null"
+        ></ion-alert>
+      </div>
+
+      <!-- Submit Button -->
+      <ion-button
+        expand="block"
+        type="submit"
+        class="login-button"
+        [disabled]="loginForm.invalid || isLoading"
+      >
+        <ion-spinner name="crescent" *ngIf="isLoading"></ion-spinner>
+        <span *ngIf="!isLoading">Iniciar Sesión</span>
+      </ion-button>
+    </form>
+
+    <!-- Footer Info -->
+    <div class="footer-info">
+      <ion-text color="medium">
+        <small>
+          ¿Necesitas ayuda? Contacta a soporte
+        </small>
+      </ion-text>
+    </div>
+  </div>
+</ion-content>
