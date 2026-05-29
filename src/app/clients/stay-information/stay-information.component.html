@@ -1,3 +1,73 @@
-<p>
-  stay-information works!
-</p>
+<ion-content class="stay-content">
+  <div class="spinner-container" *ngIf="loading">
+    <ion-spinner name="crescent" color="primary"></ion-spinner>
+    <p>Cargando información de tu estancia...</p>
+  </div>
+
+  <div class="error-container" *ngIf="!loading && errorMsg">
+    <div class="error-card">
+      <ion-icon name="information-circle-outline" class="error-icon"></ion-icon>
+      <h3>Estadía no encontrada</h3>
+      <p>{{ errorMsg }}</p>
+      <ion-button fill="outline" color="light" class="retry-btn" (click)="fetchData()">Reintentar</ion-button>
+    </div>
+  </div>
+
+  <div class="stay-details" *ngIf="!loading && staying && client">
+    <div class="welcome-banner">
+      <h2>¡Hola, {{ client.name }}!</h2>
+      <p>Bienvenido de nuevo a tu hotel de confianza</p>
+    </div>
+
+    <div class="stay-card" (click)="onClickOnStayCard()">
+      <div class="card-header">
+        <ion-icon name="bed-outline" class="card-icon"></ion-icon>
+        <div class="card-title">
+          <h3>Habitación Asignada</h3>
+          <p>Detalle de tu estancia</p>
+        </div>
+        <div class="room-number">#{{ staying.roomId }}</div>
+      </div>
+
+      <div class="card-body">
+        <div class="info-row">
+          <div class="info-item">
+            <span class="label">Check In</span>
+            <span class="value">{{ staying.checkInDate }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Check Out</span>
+            <span class="value">{{ staying.checkOutDate }}</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="info-row">
+          <div class="info-item-full">
+            <span class="label">Dirección Registrada</span>
+            <span class="value">{{ client.address }}</span>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-item">
+            <span class="label">DNI</span>
+            <span class="value">{{ client.dni }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Teléfono</span>
+            <span class="value">{{ client.phone }}</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="status-row">
+          <span class="label">Estado de la Estancia</span>
+          <span class="status-badge progress">Activa</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,3 +1,106 @@
-<p>
-  create-service-request works!
-</p>
+<ion-content class="request-content">
+
+  <ng-container *ngIf="loading">
+    <div class="spinner-container">
+      <ion-spinner name="crescent" color="primary"></ion-spinner>
+      <p>Cargando servicios de habitación...</p>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!loading && errorMsg && !success">
+    <div class="error-container">
+      <div class="error-card">
+        <ion-icon name="alert-circle-outline" class="error-icon"></ion-icon>
+        <h3>Atención</h3>
+        <p>{{ errorMsg }}</p>
+        <ion-button fill="outline" color="light" class="retry-btn" (click)="fetchData()">
+          Reintentar
+        </ion-button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="success">
+    <div class="success-overlay">
+      <div class="success-card">
+        <ion-icon name="checkmark-circle-outline" class="success-icon"></ion-icon>
+        <h3>¡Solicitud Enviada!</h3>
+        <p>Tu pedido está siendo procesado por el personal de servicio.</p>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!loading && staying && client && !success">
+    <div class="request-layout">
+      <div class="header-section">
+        <h2>Solicitar servicio</h2>
+        <p>
+          Estancia activa: <strong>#{{ staying.stayingId }}</strong>
+          · Cliente: <strong>{{ client.name}}</strong>
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card" *ngFor="let service of services; trackBy: trackByService"
+          [class.selected]="selectedServiceId === service.roomServiceId" (click)="selectService(service.roomServiceId)">
+          <div class="service-icon-bg">
+            <ion-icon *ngIf="service.category?.toLowerCase() === 'comida' ||
+                      service.category?.toLowerCase() === 'bebida' ||
+                      (service.name?.toLowerCase() ?? '').includes('comida')" name="restaurant-outline"></ion-icon>
+            <ion-icon *ngIf="service.category?.toLowerCase() === 'limpieza' ||
+                      service.category?.toLowerCase() === 'lavanderia' ||
+                      (service.name?.toLowerCase() ?? '').includes('limpieza')" name="shirt-outline"></ion-icon>
+            <ion-icon *ngIf="!(service.category?.toLowerCase() === 'comida' ||
+                        service.category?.toLowerCase() === 'bebida' ||
+                        (service.name?.toLowerCase() ?? '').includes('comida') ||
+                        service.category?.toLowerCase() === 'limpieza' ||
+                        service.category?.toLowerCase() === 'lavanderia' ||
+                        (service.name?.toLowerCase() ?? '').includes('limpieza'))" name="gift-outline"></ion-icon>
+          </div>
+
+          <div class="service-details">
+            <h4>{{ service.name }}</h4>
+            <p>{{ service.description }}</p>
+            <span class="price">${{ service.price }}</span>
+          </div>
+
+          <div class="selection-indicator">
+            <ion-icon name="checkmark-circle"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <div class="form-panel" *ngIf="selectedServiceId && !success">
+    <div class="form-header">
+      <h3>Detalles de la solicitud</h3>
+      <p>Servicio seleccionado: <strong>{{ getSelectedService()?.name }}</strong></p>
+    </div>
+
+    <div class="form-body">
+      <div class="quantity-section">
+        <span>Cantidad</span>
+        <div class="quantity-control">
+          <button class="qty-btn" type="button" (click)="decrementQty()" [disabled]="quantity <= 1">-</button>
+          <span class="qty-val">{{ quantity }}</span>
+          <button class="qty-btn" type="button" (click)="incrementQty()" [disabled]="quantity >= 10">+</button>
+        </div>
+      </div>
+
+      <ion-item class="notes-item">
+        <ion-textarea placeholder="Agregar notas para el personal..." [(ngModel)]="notes" auto-grow="true"
+          rows="2"></ion-textarea>
+      </ion-item>
+
+      <ion-button expand="block" color="primary" class="submit-btn" [disabled]="submitting || !selectedServiceId"
+        (click)="onSubmit()">
+        {{ submitting ? 'Enviando...' : 'Enviar solicitud' }}
+      </ion-button>
+
+      <ion-button expand="block" fill="clear" color="medium" (click)="selectedServiceId = null">
+        Cancelar
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

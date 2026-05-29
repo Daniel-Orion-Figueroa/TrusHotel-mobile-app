@@ -1,3 +1,113 @@
-<p>
-  requests-list works!
-</p>
+<ion-content class="tasks-content">
+  <div class="spinner-container" *ngIf="loading">
+    <ion-spinner name="crescent" color="primary"></ion-spinner>
+    <p>Cargando tus tareas asignadas...</p>
+  </div>
+
+  <div class="error-container" *ngIf="!loading && errorMsg">
+    <div class="error-card">
+      <ion-icon name="information-circle-outline" class="error-icon"></ion-icon>
+      <h3>Atención</h3>
+      <p>{{ errorMsg }}</p>
+      <ion-button fill="outline" color="light" class="retry-btn" (click)="fetchData()">Reintentar</ion-button>
+    </div>
+  </div>
+
+  <div class="tasks-layout" *ngIf="!loading && !errorMsg">
+    <div class="header-section">
+      <div class="title-area">
+        <h2>Mis Tareas Activas</h2>
+        <p>Gestiona los pedidos de servicio a la habitación asignados a ti</p>
+      </div>
+      <div class="task-counter" *ngIf="tasks.length > 0">
+        <span>{{ tasks.length }} {{ tasks.length === 1 ? 'Tarea' : 'Tareas' }}</span>
+      </div>
+    </div>
+
+    <!-- Empty state -->
+    <div class="empty-state" *ngIf="tasks.length === 0">
+      <ion-icon name="clipboard-outline" class="empty-icon"></ion-icon>
+      <h3>¡Todo al día!</h3>
+      <p>No tienes tareas de servicio a la habitación asignadas en este momento.</p>
+    </div>
+
+    <!-- Tasks List -->
+    <div class="tasks-list" *ngIf="tasks.length > 0">
+      <div class="task-card" *ngFor="let task of tasks" [class.completed-task]="task.status.toUpperCase() === 'COMPLETED'">
+
+        <div class="task-header">
+          <div class="task-title-meta">
+            <h3>{{ task.roomServiceName }}</h3>
+            <span class="requested-time">Solicitado: {{ task.requestedAt }}</span>
+          </div>
+          <span class="status-badge" [class]="getStatusBadgeClass(task.status)">
+            {{ getStatusName(task.status) }}
+          </span>
+        </div>
+
+        <div class="task-body">
+          <div class="meta-grid">
+            <div class="meta-item">
+              <ion-icon name="person-outline" class="meta-icon"></ion-icon>
+              <div class="meta-text">
+                <span class="label">Cliente</span>
+                <span class="value">{{ task.clientName || 'Cliente #' + task.clientId }}</span>
+              </div>
+            </div>
+
+            <div class="meta-item">
+              <ion-icon name="key-outline" class="meta-icon"></ion-icon>
+              <div class="meta-text">
+                <span class="label">Habitación</span>
+                <span class="value highlight">#{{ task.roomNumber || 'N/A' }}</span>
+              </div>
+            </div>
+
+            <div class="meta-item">
+              <ion-icon name="basket-outline" class="meta-icon"></ion-icon>
+              <div class="meta-text">
+                <span class="label">Cantidad</span>
+                <span class="value">{{ task.quantity }} unidades</span>
+              </div>
+            </div>
+
+            <div class="meta-item" *ngIf="task.assignedAt">
+              <ion-icon name="time-outline" class="meta-icon"></ion-icon>
+              <div class="meta-text">
+                <span class="label">Asignado</span>
+                <span class="value">{{ task.assignedAt }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="notes-section" *ngIf="task.notes">
+            <span class="notes-title">Instrucciones del Cliente:</span>
+            <p class="notes-content">"{{ task.notes }}"</p>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="task-actions" *ngIf="task.status === 'Asignado' || task.status === 'En Progreso'">
+          <ion-button *ngIf="task.status === 'Asignado'"
+                      expand="block"
+                      color="primary"
+                      class="action-btn start-btn"
+                      (click)="startTask(task.requestId)">
+            <ion-icon name="play-outline" slot="start"></ion-icon>
+            Comenzar Tarea
+          </ion-button>
+
+          <ion-button *ngIf="task.status === 'En Progreso'"
+                      expand="block"
+                      color="success"
+                      class="action-btn complete-btn"
+                      (click)="completeTask(task.requestId)">
+            <ion-icon name="checkmark-done-outline" slot="start"></ion-icon>
+            Completar Tarea
+          </ion-button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</ion-content>
