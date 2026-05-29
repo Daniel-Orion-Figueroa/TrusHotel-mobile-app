@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Seleccionar Rol</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="title-section">
+      <h1>¿Cuál es tu rol?</h1>
+      <p>Selecciona el tipo de usuario para continuar</p>
+    </div>
+
+    <div class="role-cards">
+      <!-- Employee Card -->
+      <ion-card class="role-card" (click)="selectRole('EMPLOYEE')">
+        <ion-card-header>
+          <ion-icon name="briefcase" color="primary"></ion-icon>
+        </ion-card-header>
+        <ion-card-content>
+          <h2>Empleado</h2>
+          <p>Gestiona solicitudes de servicio asignadas</p>
+          <ion-button expand="block" color="primary">Continuar</ion-button>
+        </ion-card-content>
+      </ion-card>
+
+      <!-- Client Card -->
+      <ion-card class="role-card" (click)="selectRole('CLIENT')">
+        <ion-card-header>
+          <ion-icon name="person" color="success"></ion-icon>
+        </ion-card-header>
+        <ion-card-content>
+          <h2>Cliente</h2>
+          <p>Crea y monitorea tus solicitudes de servicio</p>
+          <ion-button expand="block" color="success">Continuar</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div class="info-section">
+      <ion-text color="medium">
+        <small>Cambiar de rol: Ve a tu perfil y ajusta tus preferencias</small>
+      </ion-text>
+    </div>
+  </div>
+</ion-content>
