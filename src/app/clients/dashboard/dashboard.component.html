@@ -1,33 +1,3 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar color="dark" class="custom-toolbar">
-    <ion-title>TrustHotel</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="logout()" class="logout-btn">
-        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-<ion-router-outlet></ion-router-outlet>
-
-<ion-content [forceOverscroll]="false" >
-  <ion-tabs>
-
-    <ion-tab-bar slot="bottom" class="custom-tab-bar">
-      <ion-tab-button tab="stay" [routerLink]="['/client/stay']" routerLinkActive="active-tab">
-        <ion-icon name="bed-outline"></ion-icon>
-        <ion-label>Estadía</ion-label>
-      </ion-tab-button>
-
-      <ion-tab-button tab="request" [routerLink]="['/client/request']" routerLinkActive="active-tab">
-        <ion-icon name="restaurant-outline"></ion-icon>
-        <ion-label>Pedir Servicio</ion-label>
-      </ion-tab-button>
-
-      <ion-tab-button tab="requests" [routerLink]="['/client/requests']" routerLinkActive="active-tab">
-        <ion-icon name="receipt-outline"></ion-icon>
-        <ion-label>Mis Pedidos</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-</ion-content>
+<p>
+  dashboard works!
+</p>

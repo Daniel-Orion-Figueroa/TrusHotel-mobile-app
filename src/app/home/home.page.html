@@ -1,33 +1,20 @@
-<ion-content class="login-content">
-  <div class="login-container">
-    <div class="glass-card">
-      <div class="header-container">
-        <ion-icon name="business" class="app-logo"></ion-icon>
-        <h2>TrustHotel</h2>
-        <p>Tu portal de servicios móvil</p>
-      </div>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-      <div class="form-container">
-        <ion-item lines="none" class="input-item">
-          <ion-icon name="mail-outline" slot="start" class="input-icon"></ion-icon>
-          <ion-input type="email" placeholder="Correo Electrónico" [(ngModel)]="email" name="email" required></ion-input>
-        </ion-item>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-        <ion-item lines="none" class="input-item">
-          <ion-icon name="lock-closed-outline" slot="start" class="input-icon"></ion-icon>
-          <ion-input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" required (keyup.enter)="onLogin()"></ion-input>
-        </ion-item>
-
-        <div class="error-banner" *ngIf="errorMessage">
-          <ion-icon name="alert-circle-outline"></ion-icon>
-          <span>{{ errorMessage }}</span>
-        </div>
-
-        <ion-button expand="block" class="login-btn" (click)="onLogin()" [disabled]="loading">
-          <ion-spinner name="crescent" *ngIf="loading"></ion-spinner>
-          <span *ngIf="!loading">Iniciar Sesión</span>
-        </ion-button>
-      </div>
-    </div>
+  <div id="container">
+    <strong>Ready to create an app?</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
 </ion-content>

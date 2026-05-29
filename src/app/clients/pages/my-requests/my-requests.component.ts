@@ -1,27 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD:src/app/clients/pages/my-requests/my-requests.component.ts
 <<<<<<< HEAD
 import { RoomServiceService, Staying, ClientProfile, RoomService, RoomServiceRequest } from '../../core/services/room-service.service';
 =======
 >>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd
+=======
+>>>>>>> parent of 5116e8c (feat: implement stay information and employee dashboard features):src/app/clients/my-requests/my-requests.component.ts
 
 @Component({
   selector: 'app-my-requests',
   templateUrl: './my-requests.component.html',
   styleUrls: ['./my-requests.component.scss'],
+<<<<<<< HEAD:src/app/clients/pages/my-requests/my-requests.component.ts
 <<<<<<< HEAD
   standalone: false,
+=======
+>>>>>>> parent of 5116e8c (feat: implement stay information and employee dashboard features):src/app/clients/my-requests/my-requests.component.ts
 })
-export class MyRequestsComponent implements OnInit {
-  staying: Staying | null = null;
-  client: ClientProfile | null = null;
-  services: RoomService[] = [];
-  requests: RoomServiceRequest[] = [];
+export class MyRequestsComponent  implements OnInit {
 
-  loading = true;
-  errorMsg = '';
+  constructor() { }
 
-  constructor(private roomService: RoomServiceService) { }
+  ngOnInit() {}
 
+<<<<<<< HEAD:src/app/clients/pages/my-requests/my-requests.component.ts
   ngOnInit() {
     this.fetchData();
   }
@@ -134,4 +136,6 @@ export class MyRequestsComponent  implements OnInit {
   ngOnInit() {}
 
 >>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd
+=======
+>>>>>>> parent of 5116e8c (feat: implement stay information and employee dashboard features):src/app/clients/my-requests/my-requests.component.ts
 }

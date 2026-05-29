@@ -1,33 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD:src/app/employees/pages/requests-list/requests-list.component.ts
 <<<<<<< HEAD
 import { EmployeeTaskService, EmployeeProfile } from '../../core/services/employee-task.service';
 import { RoomServiceService, RoomService, RoomServiceRequest } from '../../core/services/room-service.service';
 =======
 >>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd
+=======
+>>>>>>> parent of 5116e8c (feat: implement stay information and employee dashboard features):src/app/employees/requests-list/requests-list.component.ts
 
 @Component({
   selector: 'app-requests-list',
   templateUrl: './requests-list.component.html',
   styleUrls: ['./requests-list.component.scss'],
+<<<<<<< HEAD:src/app/employees/pages/requests-list/requests-list.component.ts
 <<<<<<< HEAD
   standalone: false
+=======
+>>>>>>> parent of 5116e8c (feat: implement stay information and employee dashboard features):src/app/employees/requests-list/requests-list.component.ts
 })
-export class RequestsListComponent implements OnInit {
-  employee: EmployeeProfile | null = null;
-  tasks: RoomServiceRequest[] = [];
-  services: RoomService[] = [];
-  loading = true;
-  errorMsg = '';
+export class RequestsListComponent  implements OnInit {
 
-  constructor(
-    private taskService: EmployeeTaskService,
-    private roomService: RoomServiceService
-  ) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.fetchData();
-  }
+  ngOnInit() {}
 
+<<<<<<< HEAD:src/app/employees/pages/requests-list/requests-list.component.ts
   fetchData() {
     this.loading = true;
     this.errorMsg = '';
@@ -133,4 +130,6 @@ export class RequestsListComponent  implements OnInit {
   ngOnInit() {}
 
 >>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd
+=======
+>>>>>>> parent of 5116e8c (feat: implement stay information and employee dashboard features):src/app/employees/requests-list/requests-list.component.ts
 }

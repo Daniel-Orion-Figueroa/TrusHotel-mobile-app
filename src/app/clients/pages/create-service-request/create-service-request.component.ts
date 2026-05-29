@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD:src/app/clients/pages/create-service-request/create-service-request.component.ts
 <<<<<<< HEAD
 import {
   RoomServiceService,
@@ -9,28 +10,26 @@ import {
 import { Router } from '@angular/router';
 =======
 >>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd
+=======
+>>>>>>> parent of 5116e8c (feat: implement stay information and employee dashboard features):src/app/clients/create-service-request/create-service-request.component.ts
 
 @Component({
   selector: 'app-create-service-request',
   templateUrl: './create-service-request.component.html',
   styleUrls: ['./create-service-request.component.scss'],
+<<<<<<< HEAD:src/app/clients/pages/create-service-request/create-service-request.component.ts
 <<<<<<< HEAD
   standalone: false,
+=======
+>>>>>>> parent of 5116e8c (feat: implement stay information and employee dashboard features):src/app/clients/create-service-request/create-service-request.component.ts
 })
-export class CreateServiceRequestComponent implements OnInit {
-  staying: Staying | null = null;
-  client: ClientProfile | null = null;
-  services: RoomService[] = [];
+export class CreateServiceRequestComponent  implements OnInit {
 
-  selectedServiceId: number | null = null;
-  quantity = 1;
-  notes = '';
+  constructor() { }
 
-  loading = true;
-  submitting = false;
-  success = false;
-  errorMsg = '';
+  ngOnInit() {}
 
+<<<<<<< HEAD:src/app/clients/pages/create-service-request/create-service-request.component.ts
   constructor(
     private roomService: RoomServiceService,
     private router: Router,
@@ -155,4 +154,6 @@ export class CreateServiceRequestComponent  implements OnInit {
   ngOnInit() {}
 
 >>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd
+=======
+>>>>>>> parent of 5116e8c (feat: implement stay information and employee dashboard features):src/app/clients/create-service-request/create-service-request.component.ts
 }

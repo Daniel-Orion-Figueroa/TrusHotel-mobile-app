@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { authGuard } from './core/guards/auth.guard';
 import { roleGuard } from './core/guards/role.guard';
+=======
+>>>>>>> parent of 5116e8c (feat: implement stay information and employee dashboard features)
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
 =======
 import { AuthGuard } from './core/guards/auth.guard';
@@ -34,19 +37,8 @@ const routes: Routes = [
 >>>>>>> 506e5932c7f1d087a62514d54b1ab6d0f6488a00
   },
   {
-    path: 'client',
-    canActivate: [authGuard, roleGuard],
-    data: { roles: ['ROLE_CLIENT'] },
-    loadChildren: () => import('./clients/clients-module').then( m => m.ClientsModule)
-  },
-  {
-    path: 'employee',
-    canActivate: [authGuard, roleGuard],
-    data: { roles: ['ROLE_PERSONNEL', 'ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_RECEPTIONIST'] },
-    loadChildren: () => import('./employees/employees-module').then( m => m.EmployeesModule)
-  },
-  {
     path: '',
+<<<<<<< HEAD
 <<<<<<< HEAD
     redirectTo: 'login',
     pathMatch: 'full'
@@ -67,6 +59,11 @@ const routes: Routes = [
 >>>>>>> 481124ae13b2f8a22152d2caef26f10e9fc17528
 >>>>>>> 506e5932c7f1d087a62514d54b1ab6d0f6488a00
   }
+=======
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+>>>>>>> parent of 5116e8c (feat: implement stay information and employee dashboard features)
 ];
 
 @NgModule({

@@ -1,28 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD:src/app/clients/pages/stay-information/stay-information.component.ts
 <<<<<<< HEAD
 import { RoomServiceService, Staying, ClientProfile } from '../../core/services/room-service.service';
 =======
 >>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd
+=======
+>>>>>>> parent of 5116e8c (feat: implement stay information and employee dashboard features):src/app/clients/stay-information/stay-information.component.ts
 
 @Component({
   selector: 'app-stay-information',
   templateUrl: './stay-information.component.html',
   styleUrls: ['./stay-information.component.scss'],
+<<<<<<< HEAD:src/app/clients/pages/stay-information/stay-information.component.ts
 <<<<<<< HEAD
   standalone: false,
+=======
+>>>>>>> parent of 5116e8c (feat: implement stay information and employee dashboard features):src/app/clients/stay-information/stay-information.component.ts
 })
-export class StayInformationComponent implements OnInit {
-  staying: Staying | null = null;
-  client: ClientProfile | null = null;
-  loading = true;
-  errorMsg = '';
+export class StayInformationComponent  implements OnInit {
 
-  constructor(private roomService: RoomServiceService) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.fetchData();
-  }
+  ngOnInit() {}
 
+<<<<<<< HEAD:src/app/clients/pages/stay-information/stay-information.component.ts
   onClickOnStayCard() {
     console.log("click")
   }
@@ -61,4 +62,6 @@ export class StayInformationComponent  implements OnInit {
   ngOnInit() {}
 
 >>>>>>> 44e8b65064764c6a6a1c71d36a84e48cd8c60fcd
+=======
+>>>>>>> parent of 5116e8c (feat: implement stay information and employee dashboard features):src/app/clients/stay-information/stay-information.component.ts
 }
